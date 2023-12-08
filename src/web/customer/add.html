@@ -35,7 +35,9 @@
 
         document.getElementById('customer-form').addEventListener('submit', function(e) {
             e.preventDefault();
+
             const formData = new FormData(this);
+
             fetch(config.apiUrl + '/add-customer', {
                 method: 'POST',
                 headers: {
@@ -43,7 +45,7 @@
                 },
                 body: new URLSearchParams([...formData])
             }).then(response => response.json())
-              .then(data => {
+            .then(data => {
                 if(data.success) {
                     alert('顧客情報が正常に保存されました。');
                     // フォームをリセット
@@ -51,8 +53,8 @@
                 } else {
                     alert('保存に失敗しました。');
                 }
-              })
-              .catch(error => console.error('Error:', error));
+            })
+            .catch(error => console.error('Error:', error));
         });
     </script>
     <!-- BootstrapのJavaScriptの読み込み -->
