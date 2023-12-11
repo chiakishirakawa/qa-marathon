@@ -33,6 +33,8 @@
                 </tr>
             </tbody>
         </table>
+        <button id='edit' class="btn btn-primary">編集する</button>
+        <button id='delete' class="btn btn-primary">削除する</button>
 
     </div>
 
@@ -57,7 +59,25 @@
                 });
             })
             .catch((error) => console.error(error));
+        document.getElementById("delete").onclick = function () {
+            if (!window.confirm("消去していいですか？")) { return }
+            console.log('ff')
+            fetch(config.apiUrl + `/delete-customer/${id}`,)
+            .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('削除しました。');
+                        window.location.href= "http://localhost/customer/list.html";
+                    } else {
+                        alert('削除に失敗しました。');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
 
+        document.getElementById("edit").onclick = function(){
+            window.location.href= `http://localhost/customer/update.html?id=${id}`;
+        }
     </script>
 
     <!-- BootstrapのJavaScriptと依存関係のリンク -->

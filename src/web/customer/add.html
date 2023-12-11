@@ -30,7 +30,7 @@
                 <label for="location">所在地:</label>
                 <input type="text" class="form-control" id="location" name="location" required>
             </div>
-            <button type="submit" class="btn btn-primary">送信</button>
+            <button type="submit" class="btn btn-primary">確認画面へ進む</button>
         </form>
     </div>
     <script type="module">
@@ -51,7 +51,6 @@
             };
             sessionStorage.setItem("formData", JSON.stringify(formData));
             window.location.href = "http://localhost/customer/add-confirm.html";
-
         });
     </script>
     <!-- BootstrapのJavaScriptの読み込み -->
