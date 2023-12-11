@@ -22,12 +22,20 @@ app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
 
-app.get('/',(req,res) => {
-    res.send('Hello')
-});
 app.get("/customers", async (req, res) => {
   try {
     const customerData = await pool.query("SELECT * FROM customers");
+    res.send(customerData.rows);
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
+});
+app.get(`/customer/:id`, async (req, res) => {
+  const id = req.params.id;
+  try {
+    console.log(id)
+    const customerData = await pool.query("SELECT * FROM customers WHERE customer_id = $1",[id]);
     res.send(customerData.rows);
   } catch (err) {
     console.error(err);
@@ -39,7 +47,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.post("/add-customer", async (req, res) => {
-  try {
+    try {
     const { companyName, industry, contact, location } = req.body;
     const newCustomer = await pool.query(
       "INSERT INTO customers (company_name, industry, contact, location) VALUES ($1, $2, $3, $4) RETURNING *",
