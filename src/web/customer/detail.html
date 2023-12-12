@@ -65,7 +65,7 @@
                 .then(data => {
                     if (data.success) {
                         alert('削除しました。');
-                        window.location.href= `${config}/customer/list.html`;
+                        window.location.href= `./list.html`;
                     } else {
                         alert('削除に失敗しました。');
                     }
@@ -74,7 +74,7 @@
         }
 
         document.getElementById("edit").onclick = function(){
-            window.location.href= `${config}/customer/update.html?id=${id}`;
+            window.location.href= `./update.html?id=${id}`;
         }
     </script>
 

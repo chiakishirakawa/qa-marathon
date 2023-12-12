@@ -44,7 +44,7 @@
           const cell1 = row.insertCell(0);
           const cell2 = row.insertCell(1);
           const cell3 = row.insertCell(2);
-          var linkURL = `${config}/customer/detail.html?id=${customer.customer_id}`;
+          var linkURL = `/customer/detail.html?id=${customer.customer_id}`;
           var link = document.createElement("a");
           link.href = linkURL;
           link.textContent = customer.company_name;
