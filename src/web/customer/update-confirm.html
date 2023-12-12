@@ -38,7 +38,6 @@
         var formData = sessionStorage.getItem("formData");
         if (formData) {
             var formData = JSON.parse(formData);
-            console.log(formData.id)
             document.getElementById("companyName").textContent = formData.companyName;
             document.getElementById("industry").textContent = formData.industry;
             document.getElementById("contact").textContent = formData.contact;
@@ -61,7 +60,7 @@
                     if (data.success) {
                         alert('顧客情報が正常に保存されました。');
                         // フォームをリセット
-                        window.location.href= "http://localhost/customer/list.html";
+                        window.location.href= `${config}/customer/list.html`;
                     } else {
                         alert('保存に失敗しました。');
                     }

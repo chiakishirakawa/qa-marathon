@@ -43,7 +43,6 @@
         import config from "../config.js";
         let params = new URL(document.location).searchParams;
         let id = params.get("id");
-        console.log(id)
         fetch(`${config.apiUrl}/customer/${id}`)
             .then((response) => {
                 console.log(response); // ここでレスポンスオブジェクトをログに出力
@@ -61,13 +60,12 @@
             .catch((error) => console.error(error));
         document.getElementById("delete").onclick = function () {
             if (!window.confirm("消去していいですか？")) { return }
-            console.log('ff')
             fetch(config.apiUrl + `/delete-customer/${id}`,)
             .then(response => response.json())
                 .then(data => {
                     if (data.success) {
                         alert('削除しました。');
-                        window.location.href= "http://localhost/customer/list.html";
+                        window.location.href= `${config}/customer/list.html`;
                     } else {
                         alert('削除に失敗しました。');
                     }
@@ -76,7 +74,7 @@
         }
 
         document.getElementById("edit").onclick = function(){
-            window.location.href= `http://localhost/customer/update.html?id=${id}`;
+            window.location.href= `${config}/customer/update.html?id=${id}`;
         }
     </script>
 

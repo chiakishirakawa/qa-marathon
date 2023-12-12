@@ -55,13 +55,11 @@
         .catch((error) => console.error(error));
 
         document.getElementById('customer-form').addEventListener('submit', function (e) {
-            console.log()
             e.preventDefault();
             var companyName = document.getElementById("companyName").value;
             var industry = document.getElementById("industry").value;
             var contact = document.getElementById("contact").value;
             var location = document.getElementById("location").value;
-
             var formData = {
                 id:id,
                 companyName: companyName,
@@ -70,7 +68,7 @@
                 location: location
             };
             sessionStorage.setItem("formData", JSON.stringify(formData));
-            window.location.href = "http://localhost/customer/update-confirm.html";
+            window.location.href = `${config}/customer/update-confirm.html`;
         });
     </script>
     <!-- BootstrapのJavaScriptの読み込み -->
