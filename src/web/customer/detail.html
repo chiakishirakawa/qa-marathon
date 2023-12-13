@@ -58,6 +58,7 @@
                 });
             })
             .catch((error) => console.error(error));
+            
         document.getElementById("delete").onclick = function () {
             if (!window.confirm("消去していいですか？")) { return }
             fetch(config.apiUrl + `/delete-customer/${id}`,)
