@@ -47,6 +47,7 @@
             // データがない場合は適切に処理
             console.log("データがありません");
         }
+        
         document.getElementById("submit").onclick = function () {
             console.log(formData)
             fetch(config.apiUrl + `/update-customer/${formData.id}`, {
