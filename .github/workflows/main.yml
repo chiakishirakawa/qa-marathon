@@ -19,7 +19,7 @@ jobs:
           SSH_PORT: ${{ secrets.DEV_SSH_PORT }}
           SSH_USER: ${{ secrets.DEV_SSH_USER }}
           SSH_KEY: ${{ secrets.DEV_SSHE_SSH_KEY }}
-      - run: ssh ${{ steps.ssh.outputs.SERVER }} bash /app/deploy.sh chiaki_shirakawa
+      - run: ssh ${{ steps.ssh.outputs.SERVER }} bash /app/chiaki_shirakawa/deploy.sh chiaki_shirakawa
   
   deploy:
     runs-on: ubuntu-latest
@@ -37,4 +37,4 @@ jobs:
           SSH_PORT: ${{ secrets.SSH_PORT }}
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_KEY: ${{ secrets.SSHE_SSH_KEY }}
-      - run: ssh ${{ steps.ssh.outputs.SERVER }} bash /app/deploy.sh chiaki_shirakawa
+      - run: ssh ${{ steps.ssh.outputs.SERVER }} bash /app/chiaki_shirakawa/deploy.sh chiaki_shirakawa
