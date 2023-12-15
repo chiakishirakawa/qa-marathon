@@ -4,16 +4,20 @@ app.use(express.urlencoded({ extended: true }));
 
 const port = 3509;
 
+require('dotenv').config()
+
 
 const cors = require("cors");
 app.use(cors());
+console.log(process.env.POSTGRES_USER)
+
 
 const { Pool } = require("pg");
 const pool = new Pool({
-  user: "user_chiaki_shirakawa", // PostgreSQLのユーザー名に置き換えてください
-  host: "localhost",
-  database: "db_chiaki_shirakawa", // PostgreSQLのデータベース名に置き換えてください
-  password: "pass", // PostgreSQLのパスワードに置き換えてください
+  user: process.env.POSTGRES_USER, // PostgreSQLのユーザー名に置き換えてください
+  host: process.env.POSTGRES_HOST,
+  database: process.env.POSTGRES_DB, // PostgreSQLのデータベース名に置き換えてください
+  password: process.env.POSTGRES_PASSWORD, // PostgreSQLのパスワードに置き換えてください
   port: 5432,
 });
 
